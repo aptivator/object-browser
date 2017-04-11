@@ -1,0 +1,23 @@
+{
+  "name": "object-browser",
+  "version": "0.0.1",
+  "description": "A utility to access object value information using dot and array notation",
+  "main": "dist/object-browser.js",
+  "jsnext:main": "dist/object-browser.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "run-when-changed --watch \"dist/object-browser.js\" --watch \"test/test.js\" --exec \"node ./test/test.js\""
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "buble": "^0.15.2",
+    "mocha": "^3.2.0",
+    "rollup": "^0.41.6",
+    "rollup-plugin-buble": "^0.15.0",
+    "run-when-changed": "^2.0.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
