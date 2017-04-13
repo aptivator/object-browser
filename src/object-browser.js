@@ -2,14 +2,14 @@ import _        from 'lodash';
 import resulter from './lib/resulter';
 
 export default function browser(o, path, configs = {}) {
-  if(path === '__self') {
-    return o;
-  }
-  
   let parts = _.isArray(path) ? path : path.split('.');
   let first = parts.shift();
   let exists = false;
   let combined = false;
+  
+  if(path === '__self') {
+    return resulter(o, exists, combined, configs);
+  }
   
   if(_.keys(o).includes(first)) {
     exists = true;
