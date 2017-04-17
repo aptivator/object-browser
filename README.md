@@ -105,7 +105,7 @@ multiple nested arrays, the `flatten` configuration flag should be set.
 
 ```javascript
 let employeeFirstNames = browser(o, 'store.employee.name.first', {flatten: true});
-//employeeFirstNames = ['Jonh', 'Jack', 'Kate']
+//employeeFirstNames = ['John', 'Jack', 'Kate']
 ```
 
 #### Access of a browsed object itself
