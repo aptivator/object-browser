@@ -5,6 +5,7 @@ module.exports = {
       short: 'Some book'
     }
   },
+  reviews: undefined,
   tags: ['book', 'technical'],
   store: [{
     number: '222', 
