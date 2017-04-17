@@ -6,8 +6,9 @@
   "jsnext:main": "dist/object-browser.es.js",
   "scripts": {
     "build": "rollup -c",
-    "watch": "run-when-changed --watch \"dist/object-browser.js\" --watch \"test/test.js\" --exec \"node ./test/test.js\"",
-    "dev": "npm run watch & rollup -c -w"
+    "test": "mocha ./test/test.js",
+    "watch": "run-when-changed --watch \"dist/object-browser.js\" --watch \"test/test.js\" --exec \"npm test\"",
+    "dev": "npm test & npm run watch & rollup -c -w"
   },
   "author": "Dmitriy A. Nesterkin",
   "license": "MIT",
