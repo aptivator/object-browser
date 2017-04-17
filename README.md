@@ -54,21 +54,21 @@ let o = {
 };
 ```
 
-##### Standard object value access
+#### Standard object value access
 
 ```javascript
 let shortDescription = browser(o, 'item.description.short');
 //shortDescription = 'Some book'
 ```
 
-##### Standard array value access
+#### Standard array value access
 
 ```javascript
 let tag = browser(o, 'tags.1')
 //tag = 'technical'
 ```
 
-##### Combined object and array value access
+#### Combined object and array value access
 
 ```javascript
 let firstName = browser(o, 'store.0.employees.0.name.first');
@@ -83,14 +83,14 @@ let firstName = browser(o, ['store', '0', 'employees', '0', 'name', 'first']);
 //firstName = 'John'
 ```
 
-##### Access of values of objects nested in an array
+#### Access of values of objects nested in an array
 
 ```javascript
 let storeNumbers = browser(o, 'store.number');
 //storeNumbers = ['222', '212']
 ```
 
-##### Access of values of objects nested across multiple arrays
+#### Access of values of objects nested across multiple arrays
 
 ```javascript
 let employeeNames = browser(o, 'store.employees.name');
@@ -108,7 +108,7 @@ let employeeFirstNames = browser(o, 'store.employee.name.first', {flatten: true}
 //employeeFirstNames = ['Jonh', 'Jack', 'Kate']
 ```
 
-##### Setting meta-data requests
+#### Setting meta-data requests
 
 A developer may instruct `object-browser` to indicate whether an accessed value
 exists and whether it has been combined into an array by pulling values of 
