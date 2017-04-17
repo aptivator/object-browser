@@ -101,11 +101,24 @@ let employeeNames = browser(o, 'store.employees.name');
 meaningful to return an array of arrays (e.g., employee records for all stores).
 This is why `object-browser`'s default behavior is to return an empty array when 
 access is "requested" across several nested arrays.  To allow access across 
-multiple nested arrays, the `flatten` meta-data flag should be set.
+multiple nested arrays, the `flatten` configuration flag should be set.
 
 ```javascript
 let employeeFirstNames = browser(o, 'store.employee.name.first', {flatten: true});
 //employeeFirstNames = ['Jonh', 'Jack', 'Kate']
+```
+
+#### Access of a browsed object itself
+
+`object-browser` is a dependency for `mongo-query-compiler`.  Sometimes the 
+latter has to handle a use-case where an array of primitives is queried against 
+a certain criteria.  In that case, `mongo-query-compiler` has to run assessments 
+on the "object" itself.  To access the object itself, a path value of `__self`
+can be used.
+
+```javascript
+let __self = browser(o, '__self');
+//__self = o
 ```
 
 #### Setting meta-data requests
