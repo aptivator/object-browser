@@ -1,6 +1,6 @@
 let {expect} = require('chai');
 let browser = require('../dist/object-browser');
-let o = require('./fixtures/object.js');
+let o = require('./data/object.js');
 
 describe('object-browser', () => {
   it('returns object self if path is __self', () => {

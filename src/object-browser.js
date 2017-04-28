@@ -9,7 +9,7 @@ export default function browser(o, path, configs = {}) {
     let parts = _.isArray(path) ? path : path.split('.');
     let first = parts.shift();
     
-    if(_.keys(o).includes(first)) {
+    if(o.hasOwnProperty(first)) {
       exists = true;
     }
     
@@ -17,22 +17,21 @@ export default function browser(o, path, configs = {}) {
       o = o[first];
     } else if(_.isArray(o)) {
       if(!_.isNaN(+first)) {
-        o = o[+first];
+        o = o[first];
       } else {
         combined = true;
         
-        if(configs.flatten) {
-          o = _.flatten(o);
-        }
-        
         o = _.reduce(o, (accum, o) => {
-          let keys = _.keys(o);
-          if(keys.includes(first)) {
+          if(o.hasOwnProperty(first)) {
             accum.push(o[first]);
             exists = true;
           }
           return accum;
         }, []);
+        
+        if(configs.flatten) {
+          o = _.flatten(o);
+        }
       }
     } else {
       o = undefined;
