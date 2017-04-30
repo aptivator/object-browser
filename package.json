@@ -1,6 +1,6 @@
 {
   "name": "object-browser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A utility to access object value information using dot and array notation",
   "main": "dist/object-browser.js",
   "jsnext:main": "dist/object-browser.es.js",
