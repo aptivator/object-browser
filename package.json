@@ -7,7 +7,8 @@
   "scripts": {
     "build": "rollup -c",
     "test": "mocha ./test/test.js",
-    "dev": "npm test -- --watch"
+    "watch": "run-when-changed --watch \"dist/object-browser.js\" --watch \"test/test.js\" --exec \"npm test\"",
+    "dev": "npm run test & npm run watch & rollup -c -w"
   },
   "author": "Dmitriy A. Nesterkin",
   "license": "MIT",
@@ -24,7 +25,8 @@
     "mocha": "^3.2.0",
     "rollup": "^0.41.6",
     "rollup-plugin-buble": "^0.15.0",
-    "rollup-watch": "^3.2.2"
+    "rollup-watch": "^3.2.2",
+    "run-when-changed": "^2.0.3"
   },
   "dependencies": {
     "lodash": "^4.17.4"
