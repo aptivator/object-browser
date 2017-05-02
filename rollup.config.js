@@ -3,7 +3,7 @@ let packageJson = require('./package.json');
 let {'jsnext:main': jsnext, main} = packageJson;
 
 export default {
-  moduleName: 'jquery.extras',
+  moduleName: 'object-browser',
   entry: 'src/object-browser.js',
   targets: [{
     format: 'umd',
