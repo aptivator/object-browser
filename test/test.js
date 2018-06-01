@@ -1,5 +1,5 @@
 let {expect} = require('chai');
-let browser = require('../dist/object-browser');
+let {browser} = require('../dist/object-browser');
 let o = require('./data/object.js');
 
 describe('object-browser', () => {
