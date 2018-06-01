@@ -1,7 +1,7 @@
 import _        from 'lodash';
 import resulter from './lib/resulter';
 
-export function browser(o, path, configs = {}) {
+function browser(o, path, configs = {}) {
   let exists = false;
   let combined = false;
   
@@ -46,3 +46,7 @@ export function browser(o, path, configs = {}) {
   
   return resulter(o, exists, combined, configs);
 }
+
+export default {
+  browser
+};
