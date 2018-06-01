@@ -13,7 +13,7 @@ utility.
 ```javascript
 /* sample object to be browsed */
 
-import browser from 'object-browser';
+import {browser} from 'object-browser';
 
 let o = { 
   item: {
