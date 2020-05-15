@@ -1,6 +1,6 @@
-let {expect} = require('chai');
-let {browser} = require('../dist/object-browser');
-let o = require('./data/object.js');
+import {expect}  from 'chai';
+import {browser} from '../src/object-browser';
+import o         from './data/object';
 
 describe('object-browser', () => {
   it('returns object self if path is __self', () => {
@@ -51,5 +51,10 @@ describe('object-browser', () => {
   it('allows value access using an array of parts as a path', () => {
     let firstName = browser(o, ['store', '0', 'employees', '0', 'name', 'first']);
     expect(firstName).to.equal('John');
+  });
+  
+  it('undefines the input if it is not an object or an array', () => {
+    let result = browser(function() {}, 'test.test');
+    expect(result).to.be.undefined;
   });
 });

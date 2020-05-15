@@ -1,7 +1,6 @@
-import _        from 'lodash';
-import resulter from './lib/resulter';
+import _ from 'lodash';
 
-function browser(o, path, configs = {}) {
+export function browser(o, path, configs = {}) {
   let exists = false;
   let combined = false;
   
@@ -44,9 +43,23 @@ function browser(o, path, configs = {}) {
     exists = true;
   }
   
-  return resulter(o, exists, combined, configs);
+  if(configs.hasOwnProperty('flatten')) {
+    delete configs.flatten;
+  }
+  
+  if(!_.keys(configs).length) {
+    return o;
+  }
+  
+  let results = {value: o};
+  
+  if(configs.hasOwnProperty('exists')) {
+    Object.assign(results, {exists});
+  }
+  
+  if(configs.hasOwnProperty('combined')) {
+    Object.assign(results, {combined});
+  }
+  
+  return results;
 }
-
-export default {
-  browser
-};

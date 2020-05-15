@@ -1,4 +1,6 @@
+.nyc_output
 node_modules/
 npm-debug.log
 dist
+package-lock.json
 TODO.md
