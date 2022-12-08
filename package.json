@@ -1,7 +1,7 @@
 {
   "name": "object-browser",
   "version": "1.0.7",
-  "description": "A utility to access object value information using dot and array notation",
+  "description": "A utility to access object value information using dot and array notations",
   "main": "dist/object-browser.js",
   "module": "dist/object-browser.es.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "@babel/register": "^7.10.5",
     "@rollup/plugin-babel": "^5.3.1",
     "chai": "^4.2.0",
+    "copyfiles": "^2.4.1",
     "lodash.pick": "^4.4.0",
     "mocha": "^10.0.0",
     "nyc": "^15.1.0",
