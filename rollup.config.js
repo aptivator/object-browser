@@ -19,7 +19,7 @@ export default {
     babel({babelHelpers: 'bundled'}),
     generatePackageJson({
       baseContents(packageJson) {
-        let fields = ['name', 'version', 'description', 'dependencies', 'peerDependencies'];
+        let fields = ['name', 'version', 'description', 'repository', 'dependencies', 'peerDependencies'];
         let _package = pick(packageJson, fields);
 
         return Object.assign(_package, {
