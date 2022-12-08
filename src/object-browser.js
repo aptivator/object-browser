@@ -1,26 +1,24 @@
-import _ from 'lodash';
-
 export function browser(o, path, configs = {}) {
   let exists = false;
   let combined = false;
   
   if(path !== '__self') {
-    let parts = _.isArray(path) ? path : path.split('.');
+    let parts = Array.isArray(path) ? path : path.split('.');
     let first = parts.shift();
-    
+
     if(o.hasOwnProperty(first)) {
       exists = true;
     }
     
-    if(_.isPlainObject(o)) {
+    if(o.constructor === Object) {
       o = o[first];
-    } else if(_.isArray(o)) {
-      if(!_.isNaN(+first)) {
+    } else if(Array.isArray(o)) {
+      if(!isNaN(first)) {
         o = o[first];
       } else {
         combined = true;
         
-        o = _.reduce(o, (accum, o) => {
+        o = o.reduce((accum, o) => {
           if(o.hasOwnProperty(first)) {
             accum.push(o[first]);
             exists = true;
@@ -29,7 +27,7 @@ export function browser(o, path, configs = {}) {
         }, []);
         
         if(configs.flatten) {
-          o = _.flatten(o);
+          o = o.flat(Infinity);
         }
       }
     } else {
@@ -47,7 +45,7 @@ export function browser(o, path, configs = {}) {
     delete configs.flatten;
   }
   
-  if(!_.keys(configs).length) {
+  if(!Object.keys(configs).length) {
     return o;
   }
   
