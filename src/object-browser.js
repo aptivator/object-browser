@@ -6,11 +6,11 @@ export function browser(o, path, configs = {}) {
     let parts = Array.isArray(path) ? path : path.split('.');
     let first = parts.shift();
 
-    if(o.hasOwnProperty(first)) {
+    if(o?.hasOwnProperty(first)) {
       exists = true;
     }
     
-    if(o.constructor === Object) {
+    if(o?.constructor === Object) {
       o = o[first];
     } else if(Array.isArray(o)) {
       if(!isNaN(first)) {

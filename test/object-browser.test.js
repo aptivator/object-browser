@@ -57,4 +57,9 @@ describe('object-browser', () => {
     let result = browser(function() {}, 'test.test');
     expect(result).to.be.undefined;
   });
+
+  it('returns undefined if the input is a primitive', () => {
+    let result = browser(undefined, 'test.test');
+    expect(result).to.be.undefined;
+  });
 });
